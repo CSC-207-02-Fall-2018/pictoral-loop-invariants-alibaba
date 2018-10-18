@@ -41,7 +41,7 @@ public class Partition {
 		//System.out.println(middle);
 		return middle;
 	}
-   /*
+   
 	public static void main(String arg[]) {
 
 		//Test 1: random array of data
@@ -81,7 +81,7 @@ public class Partition {
 		
 
 	}
-*/
+
 
 
 }
