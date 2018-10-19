@@ -2,46 +2,49 @@ package yuanqi;
 
 public class Partition {
 
-
+    /**
+     * Rearranges the elements of a between a[left] and a[right],
+     *      so that one array element has moved to the place it
+     *      would belong in a sorted array
+     * @param a
+     * @param left
+     * @param right
+     * @return the middle element of the array
+     */
 	public static int partition(int a[], int left, int right) {
-
+	    //initializing variables
 		int l_spot=left;
 		int r_spot=right;
 		int middle =0;
-		
-		while(r_spot > l_spot ) {
+
+		// runs until r_spot and l_spot come together
+		while(r_spot > l_spot) {
 
 			while(r_spot!=l_spot && r_spot>left && a[r_spot]>=a[left]) {
 				r_spot--;
-				
-			
+
 			}
 
 			while(l_spot!=r_spot && l_spot<=right && a[l_spot]<=a[left]) {
 				l_spot++;
 
 			}
-
-
-			//if(r_spot>=l_spot) {
-				int temp = a[r_spot];
-				a[r_spot]= a[l_spot];
-				a[l_spot]=temp;
-				
-			//}
+            //swapping l_spot and r_spot
+            int temp = a[r_spot];
+            a[r_spot]= a[l_spot];
+            a[l_spot]=temp;
 		}
 
+        // placing a[left] in its appropriate position a[middle]
 		int temp1 = a[l_spot];
 		a[l_spot]= a[left];
 		a[left]= temp1;
 
-
 		middle = l_spot;
 
-		//System.out.println(middle);
 		return middle;
 	}
-   
+
 	public static void main(String arg[]) {
 
 		//Test 1: random array of data
@@ -72,10 +75,11 @@ public class Partition {
 			System.out.println("data4: "+ data4[i]); 
 		}
 		
+        
 		int data5[] = {3,3,1,2,2};
 		System.out.println("middle index: "+partition(data5,0,4));
 		for(int i=0; i<5; i++) {
-			System.out.println("data4: "+ data5[i]); 
+			System.out.println("data5: "+ data5[i]);
 		}
 		
 		
